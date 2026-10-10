@@ -493,15 +493,60 @@ Each test includes the recording, transcript, expected behavior, and observed ou
 
 ## Test 9 — Property Owned Entirely by Someone Else
 
-**Scenario:** The customer says the property belongs entirely to another person and they are not an owner.
+**Scenario:** The customer confirms that the industrial property belongs entirely to another person and that they are not an owner.
 
-**Expected outcome:** The agent asks a brief clarification to establish whether the customer is a sole or joint owner. It must not incorrectly record joint ownership or declare the customer eligible based on an assumption. If the ownership situation cannot be established, the agent must not claim preliminary qualification.
+**Expected outcome:** The agent clarifies whether the customer is a sole or joint owner. If the customer confirms that the property belongs entirely to someone else, the agent explains that the offer requires sole or joint ownership and does not declare the customer eligible.
 
-**Note:** The assignment explicitly accepts sole and joint ownership but does not specify a separate rule for a property owned entirely by a non-customer. This test evaluates clarification and accurate information capture rather than inventing a new disqualification rule.
+**Recording:** [Listen to the test recording](https://drive.google.com/file/d/1CAnLs9gDa7NYif3y42p_RjL4GdidtzVV/view?usp=drive_link)
 
-- Recording: [Insert Google Drive audio link]
-- Transcript: [Insert Google Drive transcript link]
-- Status: Pending
+**Transcript:**
+
+<details>
+<summary>View full conversation transcript</summary>
+
+**Agent:** Hello, may I speak with Shreyansh? My name is Priya, calling from Loan2k26. Is this a convenient time for a brief conversation?
+
+**Customer:** Yes.
+
+**Agent:** Thank you. I'm calling because, as one of our valued customers, you may be eligible for a special pre-approved Loan Against Property offer of up to seventy-five lakh rupees. I'd like to ask a few questions to check whether you meet the preliminary eligibility criteria. Would you be comfortable proceeding?
+
+**Customer:** For sure.
+
+**Agent:** Could you tell me what type of property you own? Is it residential, commercial, or industrial?
+
+**Customer:** It is an industrial property.
+
+**Agent:** Thank you for that. Is the property in your name alone, or is it jointly owned with someone else?
+
+**Customer:** Actually, it is neither owned by me nor directly owned by someone else. The industrial property is in the name of someone else whom I know, but he is not connected to me.
+
+**Agent:** Just to clarify, is the property in your name alone, jointly owned with someone else, or—
+
+**Customer:** It is owned by someone else entirely.
+
+**Agent:** Thank you for clarifying. Since the property is not owned by you, unfortunately, you do not meet the ownership criteria for this offer.
+
+**Customer:** Is there any other possible way?
+
+**Agent:** I understand your question. However, for this Loan Against Property offer, the property must be owned by you either solely or jointly. Since the property is owned entirely by someone else, this offer would not be applicable. If you have any other property in your name, we could explore options based on that. Would you like to check that?
+
+**Customer:** No, actually, I don't have a property that is solely owned by me or—
+
+**Agent:** Thank you for sharing that. Based on the information provided, you do not meet the eligibility criteria for this specific offer at this time. Thank you for your time.
+
+</details>
+
+**Observed outcome:**
+
+- **Ownership clarification:** Pass — the agent asked whether the property was solely or jointly owned and clarified the customer's response.
+- **Third-party ownership handling:** Pass — the agent correctly identified that the customer was not an owner.
+- **Disqualification handling:** Pass — the agent explained the ownership requirement and did not continue the eligibility checklist.
+- **Alternative exploration:** Pass — the agent asked whether the customer had another property that could be considered.
+- **Final eligibility communication:** Pass — after the customer indicated they had no qualifying property, the agent stated that they did not meet the criteria for this offer.
+
+**Overall result:** Pass — the agent followed the expected clarification and disqualification flow.
+
+**Status:** Completed — call executed and observed behavior documented.
 
 ## Test 10 — Customer Provides Answers Out of Order
 
