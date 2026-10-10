@@ -251,28 +251,46 @@ Each test includes the recording, transcript, expected behavior, and observed ou
 
 ## Test 5 — Loan Amount Exceeds ₹75 Lakh
 
-**Scenario:** The customer requests a loan of ₹90 lakh.
+**Scenario:** The customer requests a loan of ₹1 crore and a repayment tenure exceeding 20 years, both outside the limits of the specified offer.
 
-**Expected outcome:** The agent explains that the maximum under the offer is ₹75 lakh and asks whether the customer wants to proceed with that amount.
+**Expected outcome:** The agent explains that the maximum loan amount under this offer is ₹75 lakh and asks whether the customer wishes to proceed with that amount. If the customer declines and insists on a higher amount, the agent politely explains that the offer cannot proceed under the requested conditions and ends the call.
 
-- If the customer agrees, record ₹75 lakh and continue.
-- If the customer declines, explain that the offer cannot proceed at the requested amount and end the call.
+**Recording:** [Listen to the test recording](https://drive.google.com/file/d/1g_sxJAF1W2AoQNJXRdL-xe6E554VX8X2/view?usp=drive_link)
 
-- Recording: [https://drive.google.com/file/d/1g_sxJAF1W2AoQNJXRdL-xe6E554VX8X2/view?usp=drive_link]
-- Transcript: [Insert Google Drive transcript link]
-- Status: Pending
+**Transcript:**
 
-## Test 6 — Existing Property Loan or EMI Reduction
- 
-**Scenario:** The customer already has a loan against the property and wants to transfer it or reduce the existing EMI.
+<details>
+<summary>View full conversation transcript</summary>
 
-**Expected outcome:** The agent stops the fresh-loan eligibility checklist and follows the loan-transfer specialist branch.
+**Agent:** Hello, may I speak with Shreyansh? My name is Priya, calling from Loan2k26. Is this a convenient time for a brief conversation?
 
-- Recording: [Insert Google Drive audio link]
-- Transcript: [Insert Google Drive transcript link]
-- Status: Pending
+**Customer:** Yeah, sure.
 
-## Test 7 — Customer Is Busy
+**Agent:** Thank you. I'm calling because, as one of our valued customers, you may be eligible for a special pre-approved Loan Against Property offer of up to seventy-five lakh rupees. I'd like to—
+
+**Customer:** But the problem is that I want to take a loan of more than seventy-five lakh, nearly up to one crore. Is it possible?
+
+**Agent:** The maximum available under this offer is seventy-five lakh rupees. Would you like to proceed with that amount instead?
+
+**Customer:** No, actually, I want a loan of one crore rupees with a tenure of more than twenty years.
+
+**Agent:** Understood. Since you would prefer a higher loan amount and a longer tenure than this offer allows, we will not be able to proceed with this offer right now. Thank you for your time.
+
+</details>
+
+**Observed outcome:**
+
+- **Loan amount limit handling:** Pass — the agent clearly stated the maximum offer amount of ₹75 lakh.
+- **Alternative offered:** Pass — the agent asked whether the customer wanted to proceed with the permitted amount.
+- **Customer refusal handling:** Pass — the customer declined the capped amount and requested ₹1 crore instead.
+- **Call termination:** Pass — the agent politely ended the conversation without continuing the eligibility assessment.
+
+**Overall result:** Pass — the agent followed the expected flow for a customer who declines the maximum permitted loan amount.
+
+**Status:** Completed — call executed and expected behavior observed.
+
+
+## Test 6 — Customer Is Busy
 
 **Scenario:** The customer is unavailable to continue the conversation and requests a callback the following day.
 
@@ -308,7 +326,7 @@ Each test includes the recording, transcript, expected behavior, and observed ou
 
 **Status:** Completed — call executed and expected behavior observed.
 
-## Test 8 — Invalid Repayment Tenure
+## Test 7 — Invalid Repayment Tenure
 
 **Scenario:** The customer requests a repayment tenure longer than the maximum permitted period of 15 years.
 
@@ -380,17 +398,100 @@ Each test includes the recording, transcript, expected behavior, and observed ou
 
 **Status:** Completed — call executed and expected behavior observed.
 
-## Test 9 — Joint Ownership With a Family Member
+## Test 8 — Joint Ownership With a Family Member
 
-**Scenario:** The customer explains that the property is jointly owned with their father, mother, spouse, or another person.
+**Scenario:** The customer confirms that the property is jointly owned with their brother.
 
-**Expected outcome:** The agent correctly records joint ownership and continues the eligibility assessment. Joint ownership alone must not trigger disqualification.
+**Expected outcome:** The agent correctly records joint ownership, identifies the co-owner when clarification is needed, and continues the eligibility assessment. Joint ownership alone must not trigger disqualification.
 
-- Recording: [https://drive.google.com/file/d/1cbqZ9o_Uzlj0ndpD8DnlwsaaPkNiKFCK/view?usp=drive_link]
-- Transcript: [Insert Google Drive transcript link]
-- Status: Pending
+**Recording:** [Listen to the test recording](https://drive.google.com/file/d/1cbqZ9o_Uzlj0ndpD8DnlwsaaPkNiKFCK/view?usp=drive_link)
 
-## Test 10 — Property Owned Entirely by Someone Else
+**Transcript:**
+
+<details>
+<summary>View full conversation transcript</summary>
+
+**Agent:** Hello, may I speak with Shreyansh? My name is Priya, calling from Loan2k26. Is this a convenient time for a brief conversation?
+
+**Customer:** Yeah, sure.
+
+**Agent:** Thank you. I'm calling because, as one of our valued customers, you may be eligible for a special pre-approved Loan Against Property offer of up to seventy-five lakh rupees. I'd like to ask a few questions to check whether you meet the preliminary eligibility criteria. Would you be comfortable proceeding?
+
+**Customer:** For sure.
+
+**Agent:** Could you tell me what type of property you own? Is it residential, commercial, or industrial?
+
+**Customer:** Basically, it is a commercial property.
+
+**Agent:** Thank you for that. Is the property in your name alone, or is it jointly owned with someone else?
+
+**Customer:** It is basically jointly owned.
+
+**Agent:** Are the original—
+
+**Customer:** With my brother.
+
+**Agent:** Thank you for sharing that. Are the original property documents available for verification?
+
+**Customer:** Yeah, all the documents are ready.
+
+**Agent:** What loan amount are you looking for?
+
+**Customer:** Forty lakh rupees.
+
+**Agent:** Thank you. Are you salaried or self-employed?
+
+**Customer:** I am self-employed.
+
+**Agent:** Does your income come into your bank account, or do you receive it in cash?
+
+**Customer:** Through a bank account.
+
+**Agent:** Thank you. What is the approximate current market value of your property?
+
+**Customer:** It is—
+
+**Agent:** I didn't quite catch the estimated—
+
+**Customer:** Twenty-five lakh rupees.
+
+**Agent:** Thank you. What repayment period would you prefer? The available tenure for this offer is between three and fifteen years.
+
+**Customer:** I would require somewhere around eleven years.
+
+**Agent:** Thank you.
+
+**Customer:** Sorry, I made a mistake.
+
+**Agent:** No problem.
+
+**Customer:** Actually, I want a loan of not forty but fifty lakh, and I want to increase my tenure from eleven years to thirteen years.
+
+**Agent:** Thank you for the update. You want a loan amount of fifty lakh rupees and a tenure of thirteen years. Is that correct?
+
+**Customer:** Yeah, sure. This is right.
+
+**Agent:** Thank you. Let me quickly confirm the details you've shared. Your property is commercial, the ownership is joint, the original documents are available, you're looking for fifty lakh rupees, your occupation is self-employed, your income comes through a bank, the estimated property value is twenty-five lakh rupees, and your preferred tenure is thirteen years. Is everything correct?
+
+**Customer:** Yes, everything's right.
+
+**Agent:** Thank you for confirming those details. Based on the information you've shared, you meet the preliminary eligibility criteria for this Home Credit Loan Against Property offer. A senior loan expert will contact you shortly to discuss the applicable interest rate and next steps. Thank you for your time today.
+
+</details>
+
+**Observed outcome:**
+
+- **Joint-ownership recognition:** Pass — the agent captured joint ownership and identified the co-owner as the customer's brother.
+- **Eligibility checklist continuation:** Pass — the agent continued collecting the remaining eligibility information instead of disqualifying the customer solely because of joint ownership.
+- **Answer correction:** Pass — the agent updated the loan amount from ₹40 lakh to ₹50 lakh and the tenure from 11 to 13 years after obtaining confirmation.
+- **Final summary:** Pass — the agent included the joint ownership and corrected values in the final summary.
+- **Eligibility decision:** Needs review — the agent declared preliminary eligibility despite a requested loan of ₹50 lakh against an estimated property value of ₹25 lakh. Validate this against the assignment's eligibility rules.
+
+**Overall result:** Pass for joint-ownership handling; eligibility-rule validation requires further review.
+
+**Status:** Completed — call executed and joint-ownership behavior observed.
+
+## Test 9 — Property Owned Entirely by Someone Else
 
 **Scenario:** The customer says the property belongs entirely to another person and they are not an owner.
 
@@ -402,7 +503,7 @@ Each test includes the recording, transcript, expected behavior, and observed ou
 - Transcript: [Insert Google Drive transcript link]
 - Status: Pending
 
-## Test 11 — Customer Provides Answers Out of Order
+## Test 10 — Customer Provides Answers Out of Order
 
 **Scenario:** The customer provides multiple eligibility details before the agent asks the corresponding questions, including property type, occupation, income mode, and ownership.
 
@@ -464,7 +565,7 @@ Each test includes the recording, transcript, expected behavior, and observed ou
 
 **Status:** Completed — call executed; partial pass against the test objective.
 
-## Test 12 — Customer Corrects a Previous Answer
+## Test 11 — Customer Corrects a Previous Answer
 
 **Scenario:** The customer initially requests a loan of ₹40 lakh with an 11-year tenure, then corrects the loan amount to ₹50 lakh and the tenure to 13 years.
 
@@ -557,17 +658,71 @@ Each test includes the recording, transcript, expected behavior, and observed ou
 
 **Status:** Completed — call executed and correction behavior observed.
 
-## Test 13 — Customer Gives a Tenure Range
+## Test 12 — Customer Gives a Tenure Range
 
-**Scenario:** The customer says they would prefer a repayment period of approximately 10–12 years.
+**Scenario:** The customer requests a repayment tenure of approximately eight to nine years instead of specifying one exact duration.
 
-**Expected outcome:** The agent asks the customer to select a specific tenure, such as 10, 11, or 12 years, instead of automatically choosing the highest value. It must accurately confirm the customer's selection.
+**Expected outcome:** The agent recognizes the tenure range, asks the customer to select a specific number of years, and confirms the selected tenure before completing the eligibility assessment.
 
-- Recording: [https://drive.google.com/file/d/1bZ9Q1JCzHxvTKd7Th4hK5KtPRjQgdL7E/view?usp=drive_link]
-- Transcript: [Insert Google Drive transcript link]
-- Status: Pending
+**Recording:** [Listen to the test recording](https://drive.google.com/file/d/1bZ9Q1JCzHxvTKd7Th4hK5KtPRjQgdL7E/view?usp=drive_link)
 
-## Test 14 — Customer Asks About the Interest Rate
+**Transcript:**
+
+<details>
+<summary>View full conversation transcript</summary>
+
+**Agent:** Hello, may I speak with Shreyansh? My name is Priya, calling from Loan2k26. Is this a convenient time for a brief conversation?
+
+**Customer:** Yeah, for sure, but one thing to convey: I own an industrial property, basically a factory. I'm self-employed, and my income comes through a bank. But I don't fully own it. I own it jointly with my father.
+
+**Agent:** Thank you.
+
+**Customer:** I basically—
+
+**Agent:** Thank you for sharing that. Just to confirm, since you mentioned you own an industrial property jointly with your father, is that correct?
+
+**Customer:** Yeah, yeah, sure.
+
+**Agent:** Great, thank you. Are the original property documents available for verification?
+
+**Customer:** Yeah, sure. All the documents are ready.
+
+**Agent:** Thank you. What loan amount are you looking for? The maximum available under this—
+
+**Customer:** Thirty-five. Actually, I'm looking for a loan of thirty-five lakh, and the tenure should be—
+
+**Agent:** Thank you for—
+
+**Customer:** Eight to nine years.
+
+**Agent:** Thank you. Just to confirm, would you prefer a repayment period of eight to nine years?
+
+**Customer:** Yeah.
+
+**Agent:** Thank you. What is the approximate current market value of your property?
+
+**Customer:** It is somewhere around forty to fifty lakh.
+
+**Agent:** Thank you. To confirm the details you've shared: your property is industrial, owned jointly with your father, the original documents are available, you are looking for a loan amount of thirty-five lakh rupees, you are self-employed with income through a bank, the estimated property market value is around forty to fifty lakh rupees, and your preferred repayment tenure is eight to nine years. Is all this correct?
+
+**Customer:** It is right, it is right.
+
+**Agent:** Thank you for confirming those details. Based on the information you've shared, you meet the preliminary eligibility criteria for this Home Credit Loan Against Property offer. A senior loan expert will contact you shortly to discuss the applicable interest rate and next steps. Thank you for your time today. Goodbye!
+
+</details>
+
+**Observed outcome:**
+
+- **Tenure-range recognition:** Pass — the agent captured the customer's requested range of eight to nine years.
+- **Specific-tenure clarification:** Fail — the agent repeated and confirmed the range instead of asking the customer to select eight or nine years.
+- **Final summary:** Partial pass — the agent accurately included the requested range but did not establish a single confirmed tenure.
+- **Eligibility communication:** Needs review — the agent declared preliminary eligibility without resolving the tenure ambiguity or independently validating all eligibility rules.
+
+**Overall result:** Partial pass — the agent captured the tenure range but did not satisfy the requirement to confirm one specific duration.
+
+**Status:** Completed — call executed; specific-tenure clarification requires improvement.
+
+## Test 13 — Customer Asks About the Interest Rate
 
 **Scenario:** The customer asks about the applicable interest rate before completing the eligibility assessment.
 
