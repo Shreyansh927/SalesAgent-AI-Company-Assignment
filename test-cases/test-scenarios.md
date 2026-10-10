@@ -1,51 +1,38 @@
 # Home Credit Voice Agent — Test Scenarios
 
-## Test 1: Eligible Customer
-- Property: Commercial
-- Ownership: Joint
-- Original documents: Available
-- Loan amount: ₹50 lakh
-- Occupation: Salaried
-- Income mode: Bank
-- Market value: ₹25 lakh
-- Tenure: 10–12 years
-- Expected result: Preliminary qualification after clarification of the exact tenure and customer confirmation.
+This document provides a concise index of the test cases for the Home Credit Loan Against Property (LAP) voice agent built with Bolna AI.
 
-## Test 2: Agricultural Property
-- Input: Customer confirms agricultural property.
-- Expected result: Immediate disqualification; no further eligibility questions.
-- Status: Tested.
+Detailed recordings, transcripts, observed outcomes, and test statuses are documented in [`recordings/README.md`](../recordings/README.md).
 
-## Test 3: Original Documents Unavailable
-- Input: Customer cannot produce original property documents.
-- Expected result: Immediate disqualification.
+## Recorded test cases
 
-## Test 4: Cash Income
-- Input: Customer confirms income is received in cash.
-- Expected result: Immediate disqualification.
+| Test | Scenario                                                               | Expected behavior                                                                                                                                                      | Recorded result                                                                                                                 |
+| ---- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| 1    | Successful eligibility assessment                                      | Collect all seven eligibility items, summarize the details, obtain customer confirmation, and communicate preliminary eligibility without guaranteeing final approval. | Pass for conversation flow; eligibility decision requires validation against assignment rules.                                  |
+| 2    | Agricultural property                                                  | Identify agricultural property, disqualify immediately, and stop the checklist.                                                                                        | Pass                                                                                                                            |
+| 3    | Original property documents unavailable                                | Clarify document availability; disqualify if the originals cannot be produced for verification.                                                                        | Pass                                                                                                                            |
+| 4    | Loan amount exceeds ₹75 lakh; customer accepts cap but has cash income | Offer the ₹75 lakh maximum, continue if accepted, and disqualify when cash-based income is confirmed.                                                                  | Pass                                                                                                                            |
+| 5    | Customer declines the ₹75 lakh alternative                             | Explain the offer limit and end the call if the customer insists on a higher amount.                                                                                   | Pass                                                                                                                            |
+| 6    | Customer is busy                                                       | Ask for a preferred callback date/time and end the current call without continuing eligibility questions.                                                              | Pass                                                                                                                            |
+| 7    | Invalid repayment tenure                                               | Disqualify tenure outside the permitted 3–15-year range and end the assessment.                                                                                        | Pass                                                                                                                            |
+| 8    | Joint ownership with a family member                                   | Capture joint ownership, continue the checklist, and use corrected loan amount/tenure values when confirmed.                                                           | Pass for ownership and correction handling; eligibility decision requires review.                                               |
+| 9    | Property owned entirely by someone else                                | Clarify whether the customer is a legal owner; do not assume sole or joint ownership or claim eligibility without sufficient information.                              | Pending — recording and transcript not yet added.                                                                               |
+| 10   | Answers provided out of order                                          | Capture volunteered details, avoid duplicate questions, and ask only for missing information.                                                                          | Partial pass — the tenure range was not narrowed to one specific duration; eligibility decision requires review.                |
+| 11   | Customer corrects a previous answer                                    | Update the loan amount and tenure to the latest confirmed values and reflect them in the final summary.                                                                | Pass for correction handling; eligibility decision requires review.                                                             |
+| 12   | Customer gives a tenure range                                          | Ask the customer to choose one specific tenure and confirm it before completing the assessment.                                                                        | Partial pass — the agent accepted the 8–9-year range without selecting one exact duration.                                      |
+| 13   | Customer asks about the interest rate                                  | Do not invent or estimate a rate; refer the customer to a senior loan expert. Return to a pending eligibility question if one remains.                                 | Partial pass — rate handling passed; returning to a pending question was not tested because the checklist was already complete. |
 
-## Test 5: Loan Amount Above Offer Limit
-- Input: Customer requests ₹80 lakh.
-- Expected result: Offer ₹75 lakh and ask whether the customer wants to proceed.
-- If accepted: Continue with ₹75 lakh recorded.
-- If declined: End the call politely.
+## Additional scenarios to test
 
-## Test 6: Existing Property Loan or EMI Reduction
-- Input: Customer wants to transfer an existing property loan or reduce its EMI.
-- Expected result: Stop the fresh-loan checklist and use the loan-transfer specialist branch.
+These scenarios are part of the intended coverage but are not documented as completed recordings in `recordings/README.md`.
 
-## Test 7: Busy Customer
-- Input: Customer is not available to talk.
-- Expected result: Ask for a callback date and time, then end the current call.
+| Scenario                               | Expected behavior                                                                                                                                                           | Status                 |
+| -------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------- |
+| Existing property loan / EMI reduction | Stop the fresh-loan checklist and follow the appropriate specialist-routing flow. Do not claim a transfer or notification occurred unless the platform performs it.         | Pending recording      |
+| Company name and variable rendering    | Verify that the configured customer, agent, and company names render correctly and that the agent does not say an incorrect company name or expose unresolved placeholders. | Pending dedicated test |
 
-## Test 8: Invalid Tenure
-- Input: Customer requests less than 3 years or more than 15 years.
-- Expected result: Immediate disqualification.
+## Evaluation policy
 
-## Test 9: Out-of-Order Answers and Corrections
-- Input: Customer supplies multiple eligibility details in one response or corrects a previous answer.
-- Expected result: Store all clear answers, use the latest correction, and ask only for missing information.
-
-## Test 10: Company Name and Variable Rendering
-- Input: Start a test call using the configured customer, agent, and company variables.
-- Expected result: The spoken greeting uses the correct customer name, agent name, and Home Credit company name without literal placeholders or an incorrect company name.
+- Mark a scenario as completed only after the corresponding call has been executed and its observed behavior documented.
+- Distinguish successful conversation handling from successful business-rule validation.
+- Do not mark preliminary eligibility as a business-rule pass until all applicable assignment rules have been verified.
